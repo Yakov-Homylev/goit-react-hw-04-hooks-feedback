@@ -1,23 +1,21 @@
 import PropTypes from "prop-types";
 import { List } from "./Statistics.styled";
 
-function Statistics(props) {
-  const keys = Object.keys(props);
+function Statistics({ options }) {
+  const keys = Object.keys(options);
 
   return (
     <List>
-      {keys.map((key) => {
-        const CapitalizeFirstLetter =
-          key.slice(0, 1).toUpperCase() + key.slice(1);
+      {keys.map((option) => {
+        const capitalizedWord =
+          option.slice(0, 1).toUpperCase() + option.slice(1);
 
-        const percentage = !key.includes("Percentage");
+        const percentage = !option.includes("Positive");
 
         return (
-          <li key={key}>
-            <p>
-              {CapitalizeFirstLetter}:{" "}
-              <span>{percentage ? props[key] : props[key] + "%"}</span>
-            </p>
+          <li key={option}>
+            {capitalizedWord + ":"}{" "}
+            {percentage ? options[option] : options[option] + "%"}
           </li>
         );
       })}
@@ -26,7 +24,7 @@ function Statistics(props) {
 }
 
 Statistics.propTypes = {
-  props: PropTypes.objectOf(PropTypes.number),
+  options: PropTypes.objectOf(PropTypes.number),
 };
 
 export default Statistics;

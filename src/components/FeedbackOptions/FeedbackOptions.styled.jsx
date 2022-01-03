@@ -4,7 +4,6 @@ export const List = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -16,9 +15,7 @@ export const Button = styled.button`
   background-color: transparent;
   cursor: pointer;
   border-radius: 4px;
-
   transition: all 250ms cubic-bezier(0.215, 0.61, 0.355, 1);
-
   :active {
     background-color: skyblue;
   }
